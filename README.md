@@ -466,6 +466,21 @@ enterprise-risk-agent/
 - Architecture / Agent Loop 高亮：映射事件到节点，帮助面试官理解当前阶段。
 - Presentation 节奏延迟：纯前端 pacing，不修改后端。
 
+### 16.6 视觉设计系统 v2
+
+Demo Studio 经历过一次完整的视觉重构（详见 `frontend/src/demo/demo.css`，约 1.1k 行设计 token）：
+
+| 区域 | 设计语言 |
+| --- | --- |
+| 左侧 Runtime Console | 「夜空+霓虹玻璃」风：深蓝紫渐变背景 + 网格叠加 + 玻璃面板 + 彩色状态光晕 |
+| 右侧 Product Preview | 「极简商务」风：白底 + 玻璃 + 紫蓝渐变 + 卡片阴影 + 圆角 14-18px |
+| Pipeline / Agent Loop / Guardrail | 状态色光晕胶囊 + 渐变进度条 + 左边条标识类型 |
+| Timeline Event Card | 类型专属左边条 + 类型徽章（pills）+ JSON 折叠 + 计算/RAG 专属卡片 |
+| Status Hero | 渐变顶条 + 状态色光晕 + 6 字段玻璃卡片 |
+| Presentation 模式 | 字号放大 13-18px + 投屏 1920×1080 适配 |
+
+> 视觉重构**不修改任何运行时逻辑**：所有事件、SSE 协议、Tool 调用、Guardrail 真实数据完全保持上一只改的实现。
+
 ---
 
 ## 17. 面试演示

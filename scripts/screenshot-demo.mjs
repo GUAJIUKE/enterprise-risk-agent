@@ -188,7 +188,26 @@ async function main() {
 
   console.log('等待 Agent 完成…')
   await waitForText('AGENT COMPLETED')
-  await sleep(1200)
+  // 给 vite HMR 充足时间 settle（CSS 重载 / 二次渲染）
+  await sleep(2500)
+
+  // 截图前先滚到顶部，避免 chat 输入框自动 focus 把 viewport 拉到底部
+  await send('Runtime.evaluate', {
+    expression: `
+      (function() {
+        window.scrollTo(0, 0);
+        document.querySelectorAll('.runtime-console, .product-preview, .pp-bottom, .pp-chat, .timeline').forEach(el => {
+          try { el.scrollTop = 0; } catch {}
+        });
+        if (document.activeElement && document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur();
+        }
+        return 'ok';
+      })()
+    `,
+    returnByValue: true,
+  })
+  await sleep(400)
 
   const shot = await send('Page.captureScreenshot', { format: 'png' })
   if (!shot.result?.data) throw new Error('截图失败')

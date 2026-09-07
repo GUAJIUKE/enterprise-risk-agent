@@ -193,7 +193,7 @@ export function RuntimeConsole({
       </div>
 
       {/* 可折叠 Architecture 与 Raw Events */}
-      <Section title="AGENT ARCHITECTURE" defaultOpen={!presentation}>
+      <Section title="AGENT ARCHITECTURE" defaultOpen={presentation}>
         <ArchitectureMap active={state.activeNodes} compact={presentation} />
       </Section>
 
