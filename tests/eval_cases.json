@@ -1,0 +1,83 @@
+{
+  "description": "Agent 轻量评测：用例支持 required_tools / allowed_tools / forbidden_tools，",
+  "cases": [
+    {
+      "id": "c1",
+      "query": "查询星海科技有限公司的基本信息",
+      "required_tools": ["company_info_tool"],
+      "forbidden_tools": ["report_generator_tool"]
+    },
+    {
+      "id": "c2",
+      "query": "分析星海科技有限公司的财务风险",
+      "required_tools": ["financial_analysis_tool"],
+      "allowed_tools": ["company_info_tool", "knowledge_search_tool", "financial_analysis_tool"],
+      "forbidden_tools": ["report_generator_tool"]
+    },
+    {
+      "id": "c3",
+      "query": "查询星海科技有限公司的法律风险事件",
+      "required_tools": ["risk_search_tool"],
+      "allowed_tools": ["company_info_tool", "risk_search_tool", "knowledge_search_tool"],
+      "forbidden_tools": ["report_generator_tool", "financial_analysis_tool"]
+    },
+    {
+      "id": "c4",
+      "query": "企业资产负债率过高意味着什么",
+      "required_tools": ["knowledge_search_tool"],
+      "forbidden_tools": ["company_info_tool", "risk_search_tool", "financial_analysis_tool", "report_generator_tool"]
+    },
+    {
+      "id": "c5",
+      "query": "生成星海科技有限公司的完整风险报告",
+      "required_tools": [
+        "company_info_tool",
+        "risk_search_tool",
+        "financial_analysis_tool",
+        "knowledge_search_tool",
+        "report_generator_tool"
+      ]
+    },
+    {
+      "id": "c6",
+      "query": "分析云澜智能科技股份有限公司的综合风险",
+      "required_tools": ["company_info_tool", "risk_search_tool", "financial_analysis_tool"],
+      "allowed_tools": [
+        "company_info_tool",
+        "risk_search_tool",
+        "financial_analysis_tool",
+        "knowledge_search_tool",
+        "report_generator_tool"
+      ]
+    },
+    {
+      "id": "c7",
+      "query": "查询一个不存在的企业地球尽头有限责任公司的综合风险",
+      "required_tools": ["company_info_tool"],
+      "forbidden_tools": ["report_generator_tool", "knowledge_search_tool"],
+      "notes": "Tool 应返回结构化错误，Agent 不崩"
+    },
+    {
+      "id": "c8",
+      "query": "星海科技有限公司成立于什么时候？",
+      "required_tools": ["company_info_tool"],
+      "forbidden_tools": ["financial_analysis_tool", "risk_search_tool", "report_generator_tool"],
+      "notes": "只查工商信息即可"
+    },
+    {
+      "id": "c9",
+      "query": "企业资产负债率过高意味着什么？",
+      "required_tools": ["knowledge_search_tool"],
+      "forbidden_tools": ["company_info_tool", "risk_search_tool", "financial_analysis_tool", "report_generator_tool"],
+      "notes": "纯 RAG，不查任何企业"
+    },
+    {
+      "id": "c10",
+      "query": "查询星海科技有限公司的法律风险",
+      "required_tools": ["risk_search_tool"],
+      "allowed_tools": ["company_info_tool", "risk_search_tool", "knowledge_search_tool"],
+      "forbidden_tools": ["financial_analysis_tool", "report_generator_tool"],
+      "notes": "法律专项，不应跑财务"
+    }
+  ]
+}

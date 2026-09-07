@@ -1,0 +1,197 @@
+[
+  {
+    "company_name": "星海科技有限公司",
+    "aliases": ["星海科技"],
+    "credit_code": "91320100MA1KX8Y23F",
+    "established_at": "2013-06-18",
+    "registered_capital": "8000 万元人民币",
+    "industry": "软件和信息技术服务业",
+    "status": "存续",
+    "employees": 426,
+    "legal_person": "陈星海",
+    "address": "江苏省南京市雨花台区软件大道 118 号",
+    "business_scope": "人工智能软件开发；大数据服务；企业级 SaaS 平台研发与销售；信息系统集成。",
+    "financials": [
+      {
+        "year": 2023,
+        "revenue": 420000000,
+        "net_profit": 26000000,
+        "total_assets": 600000000,
+        "total_liabilities": 360000000,
+        "operating_cashflow": 12000000
+      },
+      {
+        "year": 2024,
+        "revenue": 390000000,
+        "net_profit": 18000000,
+        "total_assets": 630000000,
+        "total_liabilities": 435000000,
+        "operating_cashflow": 5000000
+      },
+      {
+        "year": 2025,
+        "revenue": 320000000,
+        "net_profit": 13500000,
+        "total_assets": 650000000,
+        "total_liabilities": 468000000,
+        "operating_cashflow": -9000000
+      }
+    ],
+    "risk_events": [
+      {
+        "date": "2025-07-08",
+        "type": "股权冻结",
+        "level": "HIGH",
+        "title": "股东陈星海所持 1200 万元股权被法院冻结",
+        "detail": "因借贷纠纷，江苏省南京市中级人民法院冻结其持有的 15% 股权，冻结期限 3 年。",
+        "source": "中国执行信息公开网"
+      },
+      {
+        "date": "2025-04-21",
+        "type": "诉讼",
+        "level": "HIGH",
+        "title": "与远舟数据技术有限公司买卖合同纠纷，涉案金额 860 万元",
+        "detail": "原告主张星海科技未按合同约定支付软件采购款，案件正在一审审理中。",
+        "source": "中国裁判文书网"
+      },
+      {
+        "date": "2025-05-12",
+        "type": "行政处罚",
+        "level": "MEDIUM",
+        "title": "因未依法报送年度报告被列入经营异常名录",
+        "detail": "南京市市场监督管理局雨花台分局作出列入决定，需补报并申请移出。",
+        "source": "国家企业信用信息公示系统"
+      },
+      {
+        "date": "2025-02-03",
+        "type": "高管变更",
+        "level": "MEDIUM",
+        "title": "财务总监张岚离职，由副总经理王睿兼任",
+        "detail": "核心财务岗位在年报披露前发生变更，需关注财务连续性。",
+        "source": "企业工商变更记录"
+      },
+      {
+        "date": "2024-11-06",
+        "type": "欠税",
+        "level": "LOW",
+        "title": "欠缴印花税及滞纳金合计 4.2 万元",
+        "detail": "已制定补缴计划，未影响纳税信用等级。",
+        "source": "税务局公告"
+      }
+    ]
+  },
+  {
+    "company_name": "云澜智能科技股份有限公司",
+    "aliases": ["云澜智能"],
+    "credit_code": "91310115MA1H9T77XB",
+    "established_at": "2016-09-02",
+    "registered_capital": "12000 万元人民币",
+    "industry": "智能制造 / 工业自动化",
+    "status": "存续",
+    "employees": 980,
+    "legal_person": "李云澜",
+    "address": "上海市浦东新区张江高科技园区科苑路 88 号",
+    "business_scope": "工业机器人研发制造；智能产线集成；机器视觉系统。",
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 880000000,
+        "net_profit": 96000000,
+        "total_assets": 1100000000,
+        "total_liabilities": 418000000,
+        "operating_cashflow": 72000000
+      },
+      {
+        "year": 2025,
+        "revenue": 1020000000,
+        "net_profit": 118000000,
+        "total_assets": 1250000000,
+        "total_liabilities": 462500000,
+        "operating_cashflow": 95000000
+      }
+    ],
+    "risk_events": [
+      {
+        "date": "2025-03-11",
+        "type": "诉讼",
+        "level": "LOW",
+        "title": "劳动合同纠纷，涉案金额 12 万元，已调解结案",
+        "detail": "个别员工离职补偿争议，不影响持续经营。",
+        "source": "中国裁判文书网"
+      }
+    ]
+  },
+  {
+    "company_name": "恒川重工集团有限公司",
+    "aliases": ["恒川重工"],
+    "credit_code": "91370200MA3D2LQ91K",
+    "established_at": "2005-04-27",
+    "registered_capital": "35000 万元人民币",
+    "industry": "重型机械制造",
+    "status": "存续（异常）",
+    "employees": 2100,
+    "legal_person": "赵恒川",
+    "address": "山东省青岛市黄岛区昆仑山路 666 号",
+    "business_scope": "港口机械、矿山设备制造与安装；钢结构工程。",
+    "financials": [
+      {
+        "year": 2024,
+        "revenue": 1560000000,
+        "net_profit": 42000000,
+        "total_assets": 2400000000,
+        "total_liabilities": 1968000000,
+        "operating_cashflow": 30000000
+      },
+      {
+        "year": 2025,
+        "revenue": 1180000000,
+        "net_profit": -26000000,
+        "total_assets": 2350000000,
+        "total_liabilities": 2054500000,
+        "operating_cashflow": -58000000
+      }
+    ],
+    "risk_events": [
+      {
+        "date": "2025-08-19",
+        "type": "失信被执行",
+        "level": "HIGH",
+        "title": "被列入失信被执行人名单，未履行金额 3200 万元",
+        "detail": "多起供应商货款纠纷进入执行阶段，公司被限制高消费。",
+        "source": "中国执行信息公开网"
+      },
+      {
+        "date": "2025-06-30",
+        "type": "债务违约",
+        "level": "HIGH",
+        "title": "中期票据本息违约，涉及金额 1.1 亿元",
+        "detail": "已触发交叉违约条款，主承销商召集持有人会议。",
+        "source": "银行间市场公告"
+      },
+      {
+        "date": "2025-05-08",
+        "type": "停产",
+        "level": "HIGH",
+        "title": "黄岛生产基地停产整顿",
+        "detail": "因安全生产事故被责令停产整顿，预计影响 3 个月产能。",
+        "source": "应急管理部门通报"
+      },
+      {
+        "date": "2025-01-22",
+        "type": "股权冻结",
+        "level": "HIGH",
+        "title": "控股股东所持 45% 股权被轮候冻结",
+        "detail": "涉及金融机构借款纠纷，冻结金额 2.3 亿元。",
+        "source": "中国执行信息公开网"
+      },
+      {
+        "date": "2024-12-15",
+        "type": "裁员",
+        "level": "MEDIUM",
+        "title": "集中裁员约 600 人，占总员工 28%",
+        "detail": "公司称系产能结构调整，工会已介入协商。",
+        "source": "公开报道"
+      }
+    ]
+  }
+]

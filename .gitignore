@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Logs
+backend/logs/
+*.log
+
+# Env
+.env
+!.env.example
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.tsbuildinfo
+
+# Dev 临时/调试截图（不进入版本库）
+docs/screenshot-debug.png
+docs/tmp.png

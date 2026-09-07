@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Enterprise Risk Analyst Agent · 总览</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #eaf0ff;
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(99,102,241,0.35), transparent 60%),
+      radial-gradient(900px 500px at -5% 110%, rgba(56,189,248,0.22), transparent 55%),
+      linear-gradient(160deg, #0b1026 0%, #101a3c 48%, #0c1230 100%);
+    position: relative;
+    padding: 32px 52px 28px;
+  }
+  body::before {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(120,140,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,140,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* ---------- Header ---------- */
+  .hd { display: flex; align-items: flex-start; justify-content: space-between; position: relative; }
+  .hd .kick { font-size: 17px; letter-spacing: 4px; color: #7dd3fc; font-weight: 600; text-transform: uppercase; }
+  .hd h1 { font-size: 46px; font-weight: 800; margin-top: 4px; letter-spacing: 1px; }
+  .hd h1 .shield { color: #67e8f9; }
+  .hd .sub { font-size: 17px; color: #aeb8dc; margin-top: 8px; }
+  .hd .badge {
+    border: 1px solid rgba(103,232,249,0.5); background: rgba(103,232,249,0.08);
+    color: #a5f3fc; padding: 10px 20px; border-radius: 999px;
+    font-size: 16px; font-weight: 600; white-space: nowrap;
+  }
+
+  /* ---------- Capability pills ---------- */
+  .caps { display: flex; gap: 12px; margin-top: 18px; position: relative; flex-wrap: nowrap; }
+  .cap {
+    font-size: 14px; padding: 6px 16px; border-radius: 999px; white-space: nowrap;
+    border: 1px solid rgba(148,163,255,0.35); color: #c7d2fe; background: rgba(99,102,241,0.12);
+    font-weight: 600;
+  }
+  .cap.hot { border-color: rgba(103,232,249,0.7); color: #a5f3fc; background: rgba(34,211,238,0.12); }
+
+  /* ---------- Body layout ---------- */
+  .main { display: flex; gap: 22px; margin-top: 18px; position: relative; }
+
+  /* ---------- Left: pipeline ---------- */
+  .card {
+    background: rgba(15,23,52,0.72); border: 1px solid rgba(148,163,255,0.22);
+    border-radius: 18px; padding: 16px 20px; backdrop-filter: blur(6px);
+  }
+  .pipe { flex: 1 1 1120px; }
+  .card h2 { font-size: 14px; letter-spacing: 2px; color: #93c5fd; font-weight: 700; text-transform: uppercase; display:flex; align-items:center; gap:10px;}
+  .card h2 .dot { width:8px; height:8px; border-radius:50%; background:#38bdf8; display:inline-block; }
+
+  .flow { display: flex; flex-direction: column; gap: 12px; margin-top: 12px; }
+  .fr1 { display: flex; align-items: center; gap: 14px; }
+  .user-box {
+    background: linear-gradient(135deg,#1d4ed8,#4f46e5); border-radius: 14px; padding: 12px 18px;
+    min-width: 240px; text-align: center; box-shadow: 0 10px 30px rgba(79,70,229,0.35);
+  }
+  .user-box .t { font-size: 14px; color:#bfdbfe; }
+  .user-box .q { font-size: 16px; font-weight: 700; margin-top:4px; }
+  .arrow { color:#67e8f9; font-size: 28px; font-weight: 300; flex: 0 0 auto; }
+  .orch {
+    flex: 1; background: rgba(49,46,129,0.5); border: 1.5px solid rgba(129,140,248,0.55);
+    border-radius: 16px; padding: 12px 18px;
+  }
+  .orch .name { font-size: 15px; font-weight: 800; color: #e0e7ff; }
+  .orch .name small { color:#818cf8; font-weight:600; }
+  .stages { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .stg {
+    flex:1; text-align:center; font-size: 13px; padding: 6px 4px; border-radius: 8px; font-weight:600;
+    background: rgba(99,102,241,0.18); color: #c7d2fe; border: 1px solid rgba(129,140,248,0.3);
+  }
+  .stg span { color:#a5b4fc; font-weight:400; }
+  .stg-arrow { color:#67e8f9; font-size: 16px; }
+
+  .fr2 { display: flex; flex-direction: column; gap: 8px; }
+  .tools-label { font-size: 12.5px; color: #94a3b8; letter-spacing: 1px; display:flex; align-items:center; gap:8px;}
+  .tools-label .line { flex:1; height:1px; background: rgba(148,163,255,0.25); }
+  .tool-row { display: flex; gap: 10px; }
+  .tool {
+    flex:1; background: rgba(30,41,82,0.85); border: 1px solid rgba(148,163,255,0.28);
+    border-radius: 11px; padding: 10px 12px; position: relative;
+  }
+  .tool .nm { font-size: 14px; font-weight: 700; color:#e2e8f0; font-family: Consolas, monospace; }
+  .tool .ds { font-size: 12px; color:#8b98c9; margin-top:4px; line-height:1.3; }
+  .tool .src {
+    position:absolute; top:-8px; right:10px; font-size:10.5px; font-weight:700; letter-spacing:.5px;
+    padding: 2px 8px; border-radius: 999px; color:#0b1026;
+  }
+  .src.py   { background:#fbbf24; }
+  .src.rag  { background:#34d399; }
+  .src.mock { background:#818cf8; }
+  .src.repo { background:#f472b6; }
+
+  .fr3 { display:flex; align-items:center; gap:14px; }
+  .sse {
+    flex:1; background: rgba(15,23,52,0.9); border:1px dashed rgba(103,232,249,0.45);
+    border-radius: 11px; padding: 10px 14px; display:flex; align-items:center; gap:12px;
+  }
+  .sse .t { font-size: 12.5px; font-weight:800; color:#67e8f9; letter-spacing:1px; white-space:nowrap;}
+  .sse .ev { font-size: 12px; color:#9fb3e0; font-family: Consolas, monospace; white-space:nowrap; }
+  .sse .ev b { color:#a5f3fc; font-weight:700; }
+  .sse .lbl { font-size: 12.5px; color:#94a3b8; }
+
+  /* ---------- Right: metrics ---------- */
+  .right { flex: 1 1 600px; display: flex; flex-direction: column; gap: 12px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .metric {
+    background: rgba(15,23,52,0.72); border: 1px solid rgba(148,163,255,0.22); border-radius: 14px;
+    padding: 12px 14px; text-align:center; position:relative;
+  }
+  .metric .v { font-size: 28px; font-weight: 800; line-height: 1.1; }
+  .metric .v.g { color:#34d399; } .metric .v.c { color:#67e8f9; }
+  .metric .k { font-size: 12px; color:#94a3b8; margin-top: 5px; letter-spacing:.3px; }
+  .metric .k b { color:#c7d2fe; }
+  .metric .tag {
+    position:absolute; top:-8px; left:14px; font-size: 10.5px; font-weight:800; letter-spacing:.5px;
+    padding: 2px 9px; border-radius: 999px; background:#4f46e5; color:#e0e7ff;
+  }
+
+  /* companies strip */
+  .cos { display:flex; gap:10px; }
+  .co {
+    flex:1; border-radius: 13px; padding: 12px 14px; position:relative;
+    background: rgba(15,23,52,0.72); border:1px solid rgba(148,163,255,0.2);
+  }
+  .co .n { font-size: 14px; font-weight:800; color:#e2e8f0; }
+  .co .lv { margin-top:8px; display:inline-flex; align-items:center; gap:6px; font-size: 13px; font-weight:800;
+    padding: 4px 12px; border-radius: 999px; }
+  .lv.high { color:#fca5a5; background: rgba(239,68,68,0.16); border:1px solid rgba(248,113,113,0.5); }
+  .lv.med  { color:#fcd34d; background: rgba(245,158,11,0.15); border:1px solid rgba(251,191,36,0.45); }
+  .lv.low  { color:#6ee7b7; background: rgba(16,185,129,0.15); border:1px solid rgba(52,211,153,0.45); }
+  .co .meta { font-size: 12px; color:#8b98c9; margin-top:7px; line-height:1.45; }
+
+  .ft {
+    position: relative; margin-top: 16px; display:flex; justify-content: space-between; align-items:center;
+    padding-top: 12px; border-top: 1px solid rgba(148,163,255,0.18);
+  }
+  .ft .ts { font-size: 13px; color:#8b98c9; }
+  .ft .ts b { color:#c7d2fe; }
+  .ft .slogan { font-size: 15px; color:#7dd3fc; font-weight:600; }
+</style>
+</head>
+<body>
+  <div class="hd">
+    <div>
+      <div class="kick">🛡️ AI Agent Engineering · Interview Demo</div>
+      <h1><span class="shield">Enterprise Risk Analyst</span> Agent</h1>
+      <div class="sub">企业风险分析智能体 —— 一句话输入 · 自主规划 · 工具执行 · 流式可观测 · 结构化报告</div>
+    </div>
+    <div class="badge">🧪 Mock Mode 可离线完整演示</div>
+  </div>
+
+  <div class="caps">
+    <span class="cap hot">🧠 LLM Agent 主循环</span>
+    <span class="cap hot">🔧 Function Calling ×5</span>
+    <span class="cap">📚 RAG 知识检索</span>
+    <span class="cap">🧮 Python 确定性计算</span>
+    <span class="cap">⚡ SSE 流式过程透出</span>
+    <span class="cap">🛡️ Guardrails 护栏</span>
+    <span class="cap">📊 双屏 Demo Studio</span>
+    <span class="cap">🧪 Eval 回归评测</span>
+  </div>
+
+  <div class="main">
+    <!-- Left: pipeline -->
+    <div class="card pipe">
+      <h2><span class="dot"></span> Execution Pipeline · 一条主循环 / 每轮真实决策</h2>
+      <div class="flow">
+        <div class="fr1">
+          <div class="user-box">
+            <div class="t">👤 User Prompt</div>
+            <div class="q">「分析星海科技综合风险并生成报告」</div>
+          </div>
+          <div class="arrow">➜</div>
+          <div class="orch">
+            <div class="name">🧠 Agent Orchestrator <small>· max_steps 8 · 重复熔断 · 15s 超时 · SSE 事件流</small></div>
+            <div class="stages">
+              <div class="stg">PLAN<span> · planning_start</span></div><div class="stg-arrow">→</div>
+              <div class="stg">ACTION<span> · tool_calls</span></div><div class="stg-arrow">→</div>
+              <div class="stg">OBSERVE<span> · observations</span></div><div class="stg-arrow">→</div>
+              <div class="stg">FINAL<span> · summary/done</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fr2">
+          <div class="tools-label"><span>TOOL ROUTER 扇出 —— 模型只决策「调哪个、传什么」，事实与数字全部来自工具</span><span class="line"></span></div>
+          <div class="tool-row">
+            <div class="tool"><span class="src mock">DATA</span><div class="nm">company_info_tool</div><div class="ds">工商信息 · 查不到即抛错，不编造</div></div>
+            <div class="tool"><span class="src mock">DATA</span><div class="nm">risk_search_tool</div><div class="ds">法律 / 财务 / 经营风险事件 + 分级</div></div>
+            <div class="tool"><span class="src py">PYTHON</span><div class="nm">financial_analysis_tool</div><div class="ds">营收 -17.95% · 负债率 72% · 现金流 -9M</div></div>
+            <div class="tool"><span class="src rag">RAG</span><div class="nm">knowledge_search_tool</div><div class="ds">3 文档 / 15 chunks · 真实余弦 Top-K</div></div>
+            <div class="tool"><span class="src repo">REPORT</span><div class="nm">report_generator_tool</div><div class="ds">上下文注入 · 结构化 RiskReport</div></div>
+          </div>
+        </div>
+
+        <div class="fr3">
+          <div class="sse">
+            <span class="t">⬇ SSE</span>
+            <span class="ev"><b>start</b> · planning_start · tool_start · tool_result · calculation · rag_result · context_injection · token · <b>report</b> · summary · <b>done</b></span>
+            <span class="lbl">（同一流驱动左右双屏）</span>
+          </div>
+          <div class="arrow">➜</div>
+          <div class="user-box" style="min-width:230px;background:linear-gradient(135deg,#0e7490,#0891b2);box-shadow:0 10px 30px rgba(8,145,178,.3);">
+            <div class="t">📊 产品视图</div>
+            <div class="q" style="font-size:15px;">Risk Dashboard + 证据链</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: metrics -->
+    <div class="right">
+      <div class="grid">
+        <div class="metric"><span class="tag">EVAL</span><div class="v g">10/10</div><div class="k"><b>用例全过</b> · 含 4 个边界用例</div></div>
+        <div class="metric"><span class="tag">EVAL</span><div class="v g">100%</div><div class="k">Required Recall · Precision · F1</div></div>
+        <div class="metric"><span class="tag">RUNTIME</span><div class="v c">2.4 步</div><div class="k">平均步数 · 按意图裁剪路径</div></div>
+        <div class="metric"><span class="tag">RUNTIME</span><div class="v c">931 ms</div><div class="k">平均端到端延迟（本地 Mock）</div></div>
+        <div class="metric"><span class="tag">RAG</span><div class="v c">3 / 15</div><div class="k">文档 / chunk · 本地 hashing 向量</div></div>
+        <div class="metric"><span class="tag">GUARDRAILS</span><div class="v c">6 项</div><div class="k">Max Steps · 熔断 · 超时 · Schema · CoT · 错误隔离</div></div>
+      </div>
+
+      <div class="card" style="padding:14px 18px;">
+        <h2><span class="dot"></span> 内置企业样本 · 同一套 Agent 三种结论</h2>
+        <div class="cos" style="margin-top:10px;">
+          <div class="co"><div class="n">⚙️ 恒川重工集团</div><span class="lv high">🔴 HIGH</span><div class="meta">高杠杆 + 经营异常 + 大量诉讼</div></div>
+          <div class="co"><div class="n">🚀 星海科技有限公司</div><span class="lv med">🟠 MEDIUM</span><div class="meta">营收 -17.95% · 负债率 72%</div></div>
+          <div class="co"><div class="n">🌱 云澜智能科技股份</div><span class="lv low">🟢 LOW</span><div class="meta">营收利润双增 · 现金流健康</div></div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:14px 18px;">
+        <h2><span class="dot"></span> 决策在 LLM · 执行与计算在代码</h2>
+        <div style="margin-top:8px; font-size:13px; color:#aeb8dc; line-height:1.6;">
+          ✦ 模型通过 <b style="color:#e2e8f0;">OpenAI 原生多轮 tool_calls</b>（assistant.tool_calls + tool_call_id）决策下一步<br/>
+          ✦ 报告前序数据由主循环 <b style="color:#e2e8f0;">context_injection</b>，模型无法伪造覆盖<br/>
+          ✦ 财务 100% Python 计算 · RAG 真实余弦 · Guardrail 统计来自 summary 唯一真值源
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft">
+    <div class="ts">Tech · <b>React 18 + Vite</b> ｜ <b>FastAPI + Pydantic v2</b> ｜ OpenAI-compatible ⇄ Mock Planner ｜ 零 UI 库手写主题</div>
+    <div class="slogan">小而完整 · 能跑 · 可观测 · 好讲 ≧▽≦ ✨</div>
+  </div>
+</body>
+</html>
